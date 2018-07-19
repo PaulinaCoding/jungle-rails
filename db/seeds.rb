@@ -63,7 +63,7 @@ cat1.products.create!({
   name:  'Hipster Socks',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel4.jpg'),
-  quantity: 8,
+  quantity: 0,
   price: 25.00
 })
 
@@ -79,7 +79,7 @@ cat1.products.create!({
   name:  'Human Feet Shoes',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel6.jpg'),
-  quantity: 82,
+  quantity: 0,
   price: 224.50
 })
 
@@ -120,7 +120,7 @@ cat3.products.create!({
   name:  'Electric Chair',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('furniture2.jpg'),
-  quantity: 2,
+  quantity: 0,
   price: 987.65
 })
 
