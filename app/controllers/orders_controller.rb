@@ -6,11 +6,14 @@ class OrdersController < ApplicationController
 
   def create
     charge = perform_stripe_charge
-    order  = create_order(charge)
+    @user = User.first
+        @order  = create_order(charge)
 
-    if order.valid?
+    if @order.valid?
       empty_cart!
-      redirect_to order, notice: 'Your Order has been placed.'
+      email_order_receipt # email receipt
+      redirect_to @order, notice: 'Your Order has been placed.'
+
     else
       redirect_to cart_path, flash: { error: order.errors.full_messages.first }
     end
@@ -53,6 +56,7 @@ class OrdersController < ApplicationController
       end
     end
     order.save!
+
     order
   end
 
@@ -65,6 +69,10 @@ class OrdersController < ApplicationController
       end
     end
     total
+  end
+
+  def email_order_receipt
+    UserMailer.email_order_receipt(@user, @order).deliver
   end
 
 end
