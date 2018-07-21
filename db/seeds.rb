@@ -147,6 +147,13 @@ Review.create!({
 })
 
 Review.create!({
+  product_id: 1,
+  user_id: 3,
+  description: "Quality product, made with a strong attension to details.",
+  rating: 5
+})
+
+Review.create!({
   product_id: 4,
   user_id: 1,
   description: "This stuff is absolutely amazing! I loved it!",
