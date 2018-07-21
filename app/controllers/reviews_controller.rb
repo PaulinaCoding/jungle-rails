@@ -1,12 +1,15 @@
-class ReviewsController < ApplicationController
+d class ReviewsController < ApplicationController
 
   def create
-    @review = Review.new(review_params)
-    if review.save
-      redirect_to '/products/#{@review.product_id}'
+    "%%%%%%%"
+    params
+    "%%%%%%%"
+    if @review.save
+      redirect_to '/products/#{@review.product_id}/reviews'
     else
       redirect_to '/products/#{@review.product_id}'
     end
+    render :plain, 'Worked'
   end
 
   def destroy

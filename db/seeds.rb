@@ -17,6 +17,7 @@ end
 unless Rails.env.development?
   puts "Development seeds only (for now)!"
   exit 0
+  <div><%= r.user_id%>testing user id</div>
 end
 
 # Let's do this ...
@@ -28,6 +29,43 @@ puts "Finding or Creating Categories ..."
 cat1 = Category.find_or_create_by! name: 'Apparel'
 cat2 = Category.find_or_create_by! name: 'Electronics'
 cat3 = Category.find_or_create_by! name: 'Furniture'
+
+
+## USERS
+puts "-------------------"
+puts "Re-creating Users ..."
+
+User.destroy_all
+
+User.create!(
+first_name: "John", 
+last_name: "Doe", 
+email: "john.doe@gmail.com", 
+password: "1234"
+})
+
+User.create!(
+  first_name: "Tom", 
+  last_name: "Smith", 
+  email: "tom.smith@gmail.com", 
+  password: "4321"
+})
+
+User.create!(
+  first_name: "Arya", 
+  last_name: "Stark", 
+  email: "arya.stark@gmail.com", 
+  password: "123"
+})
+
+
+User.create!({
+  first_name: "John", 
+  last_name: "Snow", 
+  email: "john.snow@gmail.com", 
+  password: "321"
+})
+
 
 ## PRODUCTS
 puts "-------------------"

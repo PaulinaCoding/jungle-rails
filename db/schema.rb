@@ -76,5 +76,5 @@ ActiveRecord::Schema.define(version: 20180720234138) do
 
   add_foreign_key "line_items", "orders"
   add_foreign_key "line_items", "products"
-  add_foreign_key "products", "categories"
+  add_foreign_key "oducts", "categories"
 end
