@@ -22,7 +22,7 @@ end
 # Let's do this ...
 
 ## CATEGORIES
-
+puts "-------------------"
 puts "Finding or Creating Categories ..."
 
 cat1 = Category.find_or_create_by! name: 'Apparel'
@@ -30,7 +30,7 @@ cat2 = Category.find_or_create_by! name: 'Electronics'
 cat3 = Category.find_or_create_by! name: 'Furniture'
 
 ## PRODUCTS
-
+puts "-------------------"
 puts "Re-creating Products ..."
 
 Product.destroy_all
@@ -120,7 +120,7 @@ cat3.products.create!({
   name:  'Electric Chair',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('furniture2.jpg'),
-  quantity: 0,
+  quantity: 4,
   price: 987.65
 })
 
@@ -133,4 +133,39 @@ cat3.products.create!({
 })
 
 
-puts "DONE!"
+##REVIEWS
+puts "-------------------"
+puts "Re-creating Reviews ..."
+
+Review.destroy_all
+
+Review.create!({
+  product_id: 1,
+  user_id: 2,
+  description: "I've expected better quality. Survived only 3 months.",
+  rating: 2
+})
+
+Review.create!({
+  product_id: 4,
+  user_id: 1,
+  description: "This stuff is absolutely amazing! I loved it!",
+  rating: 5
+})
+
+Review.create!({
+  product_id: 6,
+  user_id: 3,
+  description: "I like it, but my dog hates it.",
+  rating: 3
+})
+
+Review.create!({
+  product_id: 8,
+  user_id: 4,
+  description: "I can't imagine my life without it! Highly recomend it!",
+  rating: 5
+})
+
+
+puts "---------- DONE! ----------"
