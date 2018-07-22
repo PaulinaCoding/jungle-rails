@@ -1,14 +1,12 @@
 class ReviewsController < ApplicationController
 
   def create
-    puts "------Testing params #5------------------"
-
   @review = Review.new(review_params)
- 
-      if @review.save
+  @review.product_id = params[:product_id] 
+
+    if @review.save
       redirect_to "/products/#{@review.product_id}", notice: "Review was successfully created."
-      end
-    
+    end
   end
 
   def destroy
