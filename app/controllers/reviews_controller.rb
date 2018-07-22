@@ -1,15 +1,14 @@
-d class ReviewsController < ApplicationController
+class ReviewsController < ApplicationController
 
   def create
-    "%%%%%%%"
-    params
-    "%%%%%%%"
-    if @review.save
-      redirect_to '/products/#{@review.product_id}/reviews'
-    else
-      redirect_to '/products/#{@review.product_id}'
-    end
-    render :plain, 'Worked'
+    puts "------Testing params #5------------------"
+
+  @review = Review.new(review_params)
+ 
+      if @review.save
+      redirect_to "/products/#{@review.product_id}", notice: "Review was successfully created."
+      end
+    
   end
 
   def destroy
@@ -17,7 +16,11 @@ d class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).permit(:user_id, :description, :rating)
+    params.require(:review).permit(
+    :product_id,
+    :user_id, 
+    :description,
+    :rating)
   end
 
 end
