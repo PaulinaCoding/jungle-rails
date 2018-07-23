@@ -1,11 +1,15 @@
 class ReviewsController < ApplicationController
 
+
+
   def create
-  @review = Review.new(review_params)
-  @review.product_id = params[:product_id] 
+    @review = Product.find(params[:product_id]).reviews.new(review_params)
+    @review.user = current_user
 
     if @review.save
       redirect_to "/products/#{@review.product_id}", notice: "Review was successfully created."
+    else
+      redirect_to "/products/#{@review.product_id}", notice: "Review hasn't been saved!"
     end
   end
 
@@ -14,11 +18,12 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).permit(
-    :product_id,
-    :user_id, 
-    :description,
-    :rating)
+    puts params
+     params.require(:review).permit(
+      :rating,
+      :description
+    )
   end
+
 
 end
