@@ -26,3 +26,22 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 * Rails 4.2 [Rails Guide](http://guides.rubyonrails.org/v4.2/)
 * PostgreSQL 9.x
 * Stripe
+
+## Final Product
+
+!['Soldout button'](https://github.com/PaulinaCoding/jungle-rails/blob/feature/polishing_before_submitting/docs/Soldout_button.png)
+!['Login page'](https://github.com/PaulinaCoding/jungle-rails/blob/feature/polishing_before_submitting/docs/Login_page.png)
+
+!['Empty cart message'](https://github.com/PaulinaCoding/jungle-rails/blob/feature/polishing_before_submitting/docs/empty_cart_message.png)
+
+!['Order confirmation message'](https://github.com/PaulinaCoding/jungle-rails/blob/feature/polishing_before_submitting/docs/order_confirmation_message.png)
+
+!['Product page display when logged in'](https://github.com/PaulinaCoding/jungle-rails/blob/feature/polishing_before_submitting/docs/product_display_when_loged_in.png)
+
+!['Product page display when logged out'](https://github.com/PaulinaCoding/jungle-rails/blob/feature/polishing_before_submitting/docs/display_when_logged_out.png)
+
+!['Categories page'](https://github.com/PaulinaCoding/jungle-rails/blob/feature/polishing_before_submitting/docs/Categories_page.png)
+
+!['Alert when trying to add category when not logged in'](https://github.com/PaulinaCoding/jungle-rails/blob/feature/polishing_before_submitting/docs/When_trying_to_add_new_category_not_logged.png)
+
+
