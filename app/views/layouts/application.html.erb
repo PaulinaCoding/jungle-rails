@@ -7,11 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="login_register_links">
   <% if current_user %>
     Signed in as <%= current_user.first_name %> | <%= link_to "Logout", '/logout' %>
   <% else %>
     <%= link_to 'Login', '/login' %> | <%= link_to 'Register', '/register' %>
   <% end %>
+</div>
 
 
   <%= render 'layouts/top_nav' %>

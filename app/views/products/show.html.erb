@@ -24,38 +24,35 @@
             <dd><%= number_to_currency(@product.price) %></dd>
             <div class="col-sm-8 col-sm-offset-1">
             
-            
             <% unless current_user.nil? %> 
             <div class="review_form"><h4><span class="review_title">Review this product!</span></h4>
               <%= form_for [@product, Review.new] do |f| %>
                 <div class="form-group">
                   <%= f.select :rating, options_for_select([["★", "1"], ["★★", "2"],["★★★", "3"],["★★★★", "4"],["★★★★★", "5"]])%>
                 <div class="form-group">
-                  <%= f.text_area :description, size: "60x2" %>
+                  <%= f.text_area :description, size: "50x2" %>
                 <div class="form-group">
                   <%= f.submit 'Submit Review', class: 'btn btn-danger' %>
               <% end %>
             <% end %>
-
-
             </div>
           </div>
       </dl>
     </div>
   </div>
-              <div>
-                <div class="col-sm-12"><h3><span class="review_title">Reviews</span><h3></div>
-                  <div class="reviews_block">
-                    <% @product.reviews.each do |r| %>
-                      <div class="name_and_rating">
-                      <%= r.user.first_name %> 
-                      <%= r.user.last_name %> 
-                      <span><% r.rating.to_i.times do %>★<% end %></span>
-                      </div>
-                      <div class="review_description">"<%= r.description %>" description </div>
-                      <% end %>
+          <div>
+            <div class="col-sm-12"><h3><span class="review_title">Reviews</span><h3></div>
+              <div class="reviews_block">
+                <% @product.reviews.each do |r| %>
+                  <div class="name_and_rating">
+                  <%= r.user.first_name %> 
+                  <%= r.user.last_name %> 
+                  <span>   <% r.rating.to_i.times do %> ★ <% end %></span>
                   </div>
+                  <div class="review_description">"<%= r.description %>"</div>
+                  <% end %>
               </div>
+          </div>
 
   </article>
 
