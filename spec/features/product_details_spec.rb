@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 
-RSpec.feature "ProductDetails", type: :feature do
+RSpec.feature "Users can navigate from the home page to the product detail page by clicking on a product", type: :feature do
   
   before :each do
     @category = Category.create! name: 'Apparel'
@@ -20,12 +20,10 @@ RSpec.feature "ProductDetails", type: :feature do
     #     # ACT
     visit root_path
     
-    #     # commented out b/c it's for debugging only
-    
-    #     expect(page).to have_css 'article.product', count: 10
+  
     first('article.product').click_link('product_name')
-    # expect(@product.errors.full_messages).to include("Category can't be blank")
-    puts page.html
+    sleep 5
+    # puts page.html
     save_and_open_screenshot
 
   end
