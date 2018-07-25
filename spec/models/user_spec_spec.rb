@@ -50,7 +50,29 @@ RSpec.describe User, type: :model do
     
   end
 
-  # describe '.authenticate_with_credentials' do
-  #   # examples for this class method here
-  # end
+  describe '.authenticate_with_credentials' do
+
+    it "should authenticate with the correct password" do
+      @user = User.create first_name: "Tom", last_name: "Cat", email: "tom@tom.com", password: "qwerty", password_confirmation: "qwerty"
+      authenticated_user = User.authenticate_with_credentials("tom@tom.com ", "qwerty")
+      expect(authenticated_user).to be_truthy
+    end
+    it "should not authenticate with the wrong password" do
+      @user = User.create first_name: "Tom", last_name: "Cat", email: "tom@tom.com", password: "qwerty", password_confirmation: "qwerty"
+      authenticated_user = User.authenticate_with_credentials("tom12345@tom.com ", "qwerty")
+      expect(authenticated_user).to be_falsey
+    end
+
+    it "should authenticate with the extra spaces added to the email address" do
+      @user = User.create first_name: "Tom", last_name: "Cat", email: "tom@tom.com", password: "qwerty", password_confirmation: "qwerty"
+      authenticated_user = User.authenticate_with_credentials("  tom@tom.com  ", "qwerty")
+      expect(authenticated_user).to be_truthy
+    end
+
+    it "should authenticate both with lowercase and uppercase" do
+      @user = User.create first_name: "Tom", last_name: "Cat", email: "tom@tom.com", password: "qwerty", password_confirmation: "qwerty"
+      authenticated_user = User.authenticate_with_credentials("TOM@tOm.cOm", "qwerty")
+      expect(authenticated_user).to be_truthy
+    end
+  end
 end
