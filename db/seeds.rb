@@ -14,7 +14,12 @@ def open_asset(file_name)
 end
 
 # Only run on development (local) instances not on production, etc.
-unless Rails.env.development?
+# unless Rails.env.development?
+#   puts "Development seeds only (for now)!"
+#   exit 0
+# end
+
+unless Rails.env.test?
   puts "Development seeds only (for now)!"
   exit 0
 end

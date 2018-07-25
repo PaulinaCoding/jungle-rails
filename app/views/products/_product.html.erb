@@ -1,8 +1,10 @@
 <article class="product">
   <header>
-    <%= link_to product do %>
+    <%= link_to product, id:"product_name" do %>
       <%= image_tag product.image.thumb, alt: product.name %>
+     
       <h4><%= product.name %></h4>
+    
     <% end %>
   </header>
   <p class="description">
